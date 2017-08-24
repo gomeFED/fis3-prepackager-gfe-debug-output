@@ -25,7 +25,7 @@ module.exports = function(ret, conf, settings, opt) {
         var fileContent = fileInfo._content;
         var isEntryFile = (~fileContent.indexOf('/html') || ~fileContent.indexOf('/HTML')) && (~fileContent.indexOf('/head') || ~fileContent.indexOf('/HEAD')) && (~fileContent.indexOf('/body') || ~fileContent.indexOf('/BODY'));
 
-        if (/\.(html|ftl)/.test(fileExt) && isEntryFile) {
+        if (/\.(html|ftl|tpl)/.test(fileExt) && isEntryFile) {
             var pkg = fis.file.wrap(fileInfo.realpathNoExt + '-debug' + fileExt);
             //替换js域名或css域名为debug域名
             fileContent = fileContent.replace(linkAndScriptTagRegExp, function(matchTag) {
